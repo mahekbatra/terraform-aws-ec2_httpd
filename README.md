@@ -9,24 +9,6 @@ Module will perform following actions:
 4.It will setup mysql server using AWS RDS free tier.
 5.Provide endpoint connection to the wordpress appication.
 
-Example:
-module "wordpress" {
-  source  = "mahekbatra/wordpress/aws"
-  version = "1.0.2"
-  ami = "ami-011c99152163a87ae"
-  profile ="default
-  instance_type = "t2.micro"
-  region = ap-south-1
-  keyname = "C:/Users/Mahek Batra/Downloads/terraform.pem"
-  indentifier="testinstance"
-  instance_class="db.t2.micro"
-  dbname="mydb"
-  username="mahek"
-  password="mahek1234"
- }
-
-Variables:
-
 1.aws_instance:
 Required:
 ami- The ID of the AMI used to launch the instance.
