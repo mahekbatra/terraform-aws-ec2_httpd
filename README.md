@@ -1,4 +1,4 @@
-# terraform-rds-mysql_wordpress
+# terraform-aws-wordpress
 
 Integrating Wordpress with AWS RDS on AWS cloud using terraform.
 
