@@ -2,13 +2,14 @@
 
 Integrating Wordpress with AWS RDS on AWS cloud using terraform.
 
-Module will perform following actions:
-1.Create an Aws instance with Apache web server.
-2.Configure the instance with Apache Web server
-3.Download php application name "WordPress"
-4.It will setup mysql server using AWS RDS free tier.
-5.Provide endpoint connection to the wordpress appication.
+Task Description:
+1. Create an AWS EC2 instance
+2. Configure the instance with Apache Webserver.
+3. Download PHP application name “WordPress”.
+4. As WordPress stores data at the backend in the MySQL Database server. Therefore, you need to set up a MySQL server using AWS RDS service using Free Tier.
+5. Provide the endpoint/connection string to the WordPress application to make it work.
 
+Variables:
 1.aws_instance:
 Required:
 ami- The ID of the AMI used to launch the instance.
