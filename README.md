@@ -1,10 +1,17 @@
-# terraform-aws-ec2_httpd
+# terraform-aws-ec2_rds_wp
 
-This module will create an ec2 instance on aws cloud.Along with this it will create n external storage and configure the apache web server and mount the /var/www/html folder to that external storage. Whatver web pages you store in that folder will be secure and reliable even instance goes down.
+Integrating Wordpress with AWS RDS on AWS cloud using terraform.
+
+Module will perform following actions:
+1.Create an Aws instance with Apache web server.
+2.Configure the instance with Apache Web server
+3.Download php application name "WordPress"
+4.It will setup mysql server using AWS RDS free tier.
+5.Provide endpoint connection to the wordpress appication.
 
 Example:
-module "ec2_httpd" {
-  source  = "mahekbatra/ec2_httpd/aws"
+module "ec2_rds_wp" {
+  source  = "mahekbatra/ec2_rds_wp/aws"
   version = "1.0.2"
   ami = "ami-011c99152163a87ae"
   instance_type = "t2.micro"
