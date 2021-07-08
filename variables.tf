@@ -1,5 +1,5 @@
 variable "ami"{
-    default = "ami-011c99152163a87ae"
+
 }
 
 variable "region"{
@@ -13,15 +13,27 @@ variable "profile"{
 variable "instance_type"{
     default = "t2.micro"
 }
-
-variable "size"{
-    default = 1
+variable "keyname"{
+   default=""
 }
 
-variable "user"{
-    default="user"
+variable "identifier"{
+  default="testinstance"
 }
 
-variable "credentials"{
-  
+variable "instance_class"{
+  default="db.t2.micro"
 }
+
+variable "dbname"{
+  default="mydb"
+}
+
+variable "username"{
+  default=""
+}
+
+variable "password"{
+  default=""
+}
+
