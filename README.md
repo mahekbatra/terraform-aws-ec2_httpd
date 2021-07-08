@@ -10,15 +10,19 @@ Module will perform following actions:
 5.Provide endpoint connection to the wordpress appication.
 
 Example:
-module "ec2_rds_wp" {
-  source  = "mahekbatra/ec2_rds_wp/aws"
+module "wordpress" {
+  source  = "mahekbatra/wordpress/aws"
   version = "1.0.2"
   ami = "ami-011c99152163a87ae"
+  profile ="default
   instance_type = "t2.micro"
-  size = 1
   region = ap-south-1
-  user = "ec2-user"
-  credentials = "C:/Users/Mahek Batra/Downloads/key.pem"
+  keyname = "C:/Users/Mahek Batra/Downloads/terraform.pem"
+  indentifier="testinstance"
+  instance_class="db.t2.micro"
+  dbname="mydb"
+  username="mahek"
+  password="mahek1234"
  }
 
 Variables:
@@ -34,20 +38,19 @@ instance_id - Specify the exact Instance ID with which to populate the data sour
 
 instance_tags - A map of tags, each pair of which must exactly match a pair on the desired Instance.
 
+2.aws_db_instance:
+allocated_storage - (Required unless a snapshot_identifier or replicate_source_db is provided) The allocated storage in gibibytes.
+If max_allocated_storage is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
 
-2.aws_ebs_volume:
+identifier - (Optional, Forces new resource) The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier. Required if restore_to_point_in_time is specified.
 
-availability_zone(Required)-The AZ where the EBS volume will exist.
+instance_class - (Required) The instance type of the RDS instance.
 
-encrypted - (Optional) If true, the disk will be encrypted.
-iops - (Optional) The amount of IOPS to provision for the disk. Only valid for type of io1, io2 or gp3.
-multi_attach_enabled - (Optional) Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on io1 volumes.
-size - (Optional) The size of the drive in GiBs.
-snapshot_id (Optional) A snapshot to base the EBS volume off of.
+name - (Optional) The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines.
 
-3.local-exec Provisioner
+password - (Required unless a snapshot_identifier or replicate_source_db is provided) Password for the master DB user. 
 
-The local-exec provisioner invokes a local executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource. See the remote-exec provisioner to run commands on the resource.
+username - (Required unless a snapshot_identifier or replicate_source_db is provided) Username for the master DB user.
 
 4.remote-exec Provisioner
 
